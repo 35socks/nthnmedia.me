@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="/icon.png" sizes="32x32">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        
+        /* CONTAINER CSS (Same as before) */
+        .container::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            backdrop-filter: hue-rotate(90deg);
+            mask: linear-gradient(45deg, #0000, #000);
+            animation: rotaty 5s linear infinite;
+            transform-origin: center;
+        }
+
+        .container {
+            position: absolute;
+            background-image: radial-gradient(
+                circle at 50% 50%,
+                #0000 0,
+                #0000 2px,
+                hsl(0 0 4%) 2px
+            );
+            background-size: 8px 8px;
+            width: 100%;
+            height: 100%;
+        }
+
+        @keyframes thingy {
+            0% { filter: var(--f) hue-rotate(0deg); }
+            to { filter: var(--f) hue-rotate(1turn); }
+        }
+
+        .container::before {
+            content: "";
+            position: absolute;
+            inset: -8em;
+            z-index: -1;
+            --f: blur(7em) brightness(5);
+            --c: #09f;
+            animation:
+                blobs-1e28bd3d 150s linear infinite,
+                thingy 5s linear infinite;
+            background-color: #000;
+            background-image: radial-gradient(
+                    ellipse 66px 50px at 50% 50%,
+                    #0f0 0%,
+                    transparent 100%
+                ),
+                radial-gradient(ellipse 77px 60px at 50% 50%, #0f0 0%, transparent 100%),
+                radial-gradient(ellipse 78px 100px at 50% 50%, #0f0 0%, transparent 100%),
+                radial-gradient(ellipse 73px 96px at 50% 50%, #0f0 0%, transparent 100%),
+                radial-gradient(ellipse 76px 77px at 50% 50%, #0f0 0%, transparent 100%),
+                radial-gradient(ellipse 66px 51px at 50% 50%, #0f0 0%, transparent 100%),
+                radial-gradient(ellipse 90px 57px at 50% 50%, #0f0 0%, transparent 100%),
+                radial-gradient(ellipse 89px 93px at 50% 50%, #0f0 0%, transparent 100%);
+            background-size:
+                726px 576px,
+                1242px 454px,
+                876px 1160px,
+                691px 873px,
+                914px 550px,
+                1159px 340px,
+                1017px 831px,
+                313px 977px;
+        }
+
+        @keyframes blobs-1e28bd3d {
+            0% { background-position: 271px 478px, 62px 291px, 67px 861px, 553px 413px, 36px 392px, 1077px 226px, 400px 799px, 7px 264px; }
+            to { background-position: -14975px -2978px, 31112px 11187px, -20081px 8981px, 11609px -3952px, -12760px 12492px, -9354px 2946px, 9553px 21574px, 946px 9057px; }
+        }
+
+        /* PROJECTS PAGE STYLES */
+        body {
+            margin: 0;
+            overflow: hidden;
+            height: 100vh;
+            font-family: 'Inter', sans-serif;
+            color: #f5f5f5;
+        }
+
+        .content {
+            position: relative;
+            z-index: 2;
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .back-link {
+            position: absolute;
+            top: 2rem;
+            left: 2rem;
+            color: rgba(245, 245, 245, 0.8);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .back-link:hover {
+            color: #f5f5f5;
+            transform: translateX(-4px);
+        }
+
+        .project-grid {
+            display: grid;
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+     /* Replace or modify these CSS rules in your style section */
+
+.project-card {
+    background: rgba(15, 15, 15, 0.4);
+    border-radius: 0.75rem;  /* Reduced from 1rem */
+    padding: 1.5rem;        /* Reduced from 2rem */
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(245, 245, 245, 0.1);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    max-width: 400px;       /* Added max-width */
+}
+
+.project-title {
+    font-size: 1.75rem;     /* Reduced from 2.5rem */
+    font-weight: 700;
+    margin-bottom: 0.75rem; /* Reduced from 1rem */
+}
+
+.project-link {
+    padding: 0.6rem 1.2rem; /* Reduced from 0.8rem 1.5rem */
+    font-size: 0.9rem;      /* Added smaller font size */
+}
+
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            background: rgba(15, 15, 15, 0.5);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+        }
+
+
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-top: 1.5rem;
+            padding: 0.8rem 1.5rem;
+            background: rgba(245, 245, 245, 0.1);
+            color: #f5f5f5;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .project-link:hover {
+            background: rgba(245, 245, 245, 0.2);
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                padding: 6rem 1.5rem;
+            }
+            
+            .project-title {
+                font-size: 2rem;
+            }
+            
+            .project-card {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+    <title>Projects | NTHN</title>
+</head>
+<body>
+    <div class="container">
+        <a href="/" class="back-link">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 12H5M12 19l-7-7 7-7"/>
+            </svg>
+            Back
+        </a>
+        
+        <div class="content">
+            <div class="project-grid">
+                <div class="project-card" onclick="window.location='https://frankology.nthnmedia.me'">
+                    <h2 class="project-title">FRANKology</h2>
+                    <a href="https://frankology.nthnmedia.me" class="project-link">
+                        View Project
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
